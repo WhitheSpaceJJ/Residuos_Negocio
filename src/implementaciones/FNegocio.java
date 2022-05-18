@@ -1,5 +1,7 @@
 package implementaciones;
 
+import interfaces.INegocio;
+import interfaces.IDatos;
 import entidades.Administrador;
 import entidades.Asignacion_Traslado;
 import entidades.Empresa;

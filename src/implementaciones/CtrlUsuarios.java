@@ -1,15 +1,17 @@
 package implementaciones;
 
+import interfaces.IDatos;
 import entidades.Administrador;
 import entidades.Productor;
 import entidades.Transportador;
+import interfaces.ICtrlUsuarios;
 
 /**
  * Clase que representa el control de Usuarios.
  *
  * @author Equipo 1 Jose,Abraham y Oroz
  */
-public class CtrlUsuarios {
+public class CtrlUsuarios implements ICtrlUsuarios{
 
     private final IDatos datos;
 
@@ -30,6 +32,7 @@ public class CtrlUsuarios {
      * @param administrador Usuario administrador a guardar.
      * @return true si este se guardo con exito, false en caso contrario.
      */
+    @Override
     public boolean guardarAdministrador(Administrador administrador) {
         return this.datos.guardarAdministrador(administrador);
     }
@@ -42,6 +45,7 @@ public class CtrlUsuarios {
      * @param contraseña Contraseña del usuario.
      * @return El usario si este se encontro, null en caso contrario.
      */
+    @Override
     public Administrador consultarAdministrador(String nombre, String contraseña) {
         return this.datos.consultarAdministrador(nombre, contraseña);
     }
@@ -54,6 +58,7 @@ public class CtrlUsuarios {
      * @return true si el usuario productor se guardo con exito, false en caso
      * contrario
      */
+    @Override
     public boolean guardarProductor(Productor productor) {
         return this.datos.guardarProductor(productor);
     }
@@ -66,6 +71,7 @@ public class CtrlUsuarios {
      * @param contraseña Contraseña del usuario productor a consultar.
      * @return EL usuario productor si este existe, null en caso contrario.
      */
+    @Override
     public Productor consultarProductor(String nombre, String contraseña) {
         return this.datos.consultarProductor(nombre, contraseña);
     }
@@ -77,6 +83,7 @@ public class CtrlUsuarios {
   * @param transportador Usuario transportador a guardar.
      * @return true si este se guardo con exito, false en caso contrario.
      */
+    @Override
     public boolean guardarTransportador(Transportador transportador) {
         return this.datos.guardarTransportador(transportador);
     }
@@ -90,6 +97,7 @@ public class CtrlUsuarios {
      * @return El usuario transportado que se obtuvo o null si este no se
      * encontro.
      */
+    @Override
     public Transportador consultarTransportador(String nombre, String contraseña) {
         return this.datos.consultarTransportador(nombre, contraseña);
     }
@@ -101,6 +109,7 @@ public class CtrlUsuarios {
     * @param nombre Nombre a validar.
      * @return true si existe alguno, false en caso contrario.
      */
+    @Override
     public boolean validarUsuario(String nombre) {
         return this.datos.validarUsuario(nombre);
     }

@@ -1,4 +1,4 @@
-package implementaciones;
+package interfaces;
 
 import entidades.Administrador;
 import entidades.Asignacion_Traslado;

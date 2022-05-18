@@ -1,6 +1,8 @@
 package implementaciones;
 
+import interfaces.IDatos;
 import entidades.Asignacion_Traslado;
+import interfaces.ICtrlAsignacionTraslado;
 import java.util.List;
 import org.bson.types.ObjectId;
 
@@ -9,7 +11,7 @@ import org.bson.types.ObjectId;
  *
  * @author Equipo 1 Jose,Abraham y Oroz
  */
-public class CtrlAsignacionTraslado {
+public class CtrlAsignacionTraslado implements ICtrlAsignacionTraslado{
 
     private IDatos datos;
 
@@ -31,6 +33,7 @@ public class CtrlAsignacionTraslado {
      * @param list Lista de asignaciones de traslado a registrar.
      * @return true si estas se registraron con exito, false en caso contrario.
      */
+    @Override
     public boolean guardarAsignacionTraslado(List<Asignacion_Traslado> list) {
         return this.datos.guardarAsignacionTraslado(list);
     }
@@ -44,6 +47,7 @@ public class CtrlAsignacionTraslado {
      * @return La lista de las asignaciones de traslado de la empresa de
      * transporte.
      */
+    @Override
     public List<Asignacion_Traslado> consultarAsignacionTrasladosEmpresaT(ObjectId idEmpresaProductora) {
         return this.datos.consultarAsignacionTrasladosEmpresaT(idEmpresaProductora);
     }
@@ -55,6 +59,7 @@ public class CtrlAsignacionTraslado {
       * @param _id ID de la asignacion a actualizar.
      * @return true si esta se actualizo con exito, false en caso contrario.
      */
+    @Override
     public boolean actualizarAsignacion(ObjectId _id) {
         return this.datos.actualizarAsignacion(_id);
     }

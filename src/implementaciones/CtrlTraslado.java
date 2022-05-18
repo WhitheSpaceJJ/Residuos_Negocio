@@ -1,13 +1,15 @@
 package implementaciones;
 
+import interfaces.IDatos;
 import entidades.Traslado;
+import interfaces.ICtrlTraslado;
 import org.bson.types.ObjectId;
 /**
  * Clase que representa el control de traslados.
  *
  * @author Equipo 1 Jose,Abraham y Oroz
  */
-public class CtrlTraslado {
+public class CtrlTraslado implements ICtrlTraslado{
 
     private IDatos datos;
 
@@ -29,6 +31,7 @@ public class CtrlTraslado {
      * @return true si el traslado se registro con exito, false en caso
      * contrario.
      */
+    @Override
     public boolean guardarTraslado(Traslado traslado) {
         return datos.guardarTraslado(traslado);
     }

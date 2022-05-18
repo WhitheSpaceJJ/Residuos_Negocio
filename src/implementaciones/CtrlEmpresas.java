@@ -5,9 +5,11 @@
  */
 package implementaciones;
 
+import interfaces.IDatos;
 import entidades.Productora;
 import entidades.Transporte;
 import entidades.Vehiculo;
+import interfaces.ICtrlEmpresas;
 import java.util.List;
 import org.bson.types.ObjectId;
 /**
@@ -15,7 +17,7 @@ import org.bson.types.ObjectId;
  *
  * @author Equipo 1 Jose,Abraham y Oroz
  */
-public class CtrlEmpresas {
+public class CtrlEmpresas implements ICtrlEmpresas{
 
     private IDatos datos;
 
@@ -34,6 +36,7 @@ public class CtrlEmpresas {
      *
      * @return Lista de la empresa productoras disponibles.
      */
+    @Override
     public List<Productora> getEmpresasProductoras() {
         return datos.getEmpresasProductoras();
     }
@@ -43,6 +46,7 @@ public class CtrlEmpresas {
      *
      * @return Lista de las empresas de transporte disponibles.
      */
+    @Override
     public List<Transporte> getEmpresasTransportes() {
         return datos.getEmpresasTransportes();
     }
@@ -54,6 +58,7 @@ public class CtrlEmpresas {
        * @param _id ID de la empresa productora.
      * @return La empresa productora obtenida.
      */
+    @Override
     public Productora getEmpresaProductora(ObjectId _id) {
         return datos.getEmpresaProductora(_id);
     }
@@ -65,6 +70,7 @@ public class CtrlEmpresas {
          * @param _id El id de la empresa de transporte.
      * @return La empresa de transporte obtenida.
      */
+    @Override
     public Transporte getEmpresaTransporte(ObjectId _id) {
         return datos.getEmpresaTransporte(_id);
     }
@@ -77,6 +83,7 @@ public class CtrlEmpresas {
      * @return true si la empresa empresa productora se guardo con exito, false
      * en caso contrario.
      */
+    @Override
     public boolean guardarEmpresaProductora(Productora productora) {
         return datos.guardarEmpresaProductora(productora);
     }
@@ -89,6 +96,7 @@ public class CtrlEmpresas {
      * @return true si la empresa de transporte registrada se guardo con exito,
      * false en caso contrario.
      */
+    @Override
     public boolean guardarEmpresaTransporte(Transporte transporte) {
         return datos.guardarEmpresaTransporte(transporte);
     }
@@ -101,6 +109,7 @@ public class CtrlEmpresas {
      * @param transporteEmpresa Empresa transportadora a guardar el vehiculo.
      * @return true si el vehiculo se guardo con exito, false en caso contrario.
      */
+    @Override
     public boolean guardarVehiculo(Vehiculo vehiculo, Transporte transporteEmpresa) {
         return datos.guardarVehiculo(vehiculo, transporteEmpresa);
     }

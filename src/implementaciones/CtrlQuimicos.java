@@ -1,6 +1,8 @@
 package implementaciones;
 
+import interfaces.IDatos;
 import entidades.Quimico;
+import interfaces.ICtrlQuimicos;
 import java.util.List;
 import org.bson.types.ObjectId;
 /**
@@ -8,7 +10,7 @@ import org.bson.types.ObjectId;
  *
  * @author Equipo 1 Jose,Abraham y Oroz
  */
-public class CtrlQuimicos {
+public class CtrlQuimicos implements ICtrlQuimicos{
 
     private IDatos datos;
 
@@ -27,6 +29,7 @@ public class CtrlQuimicos {
      *
      * @return Lista de quimicos del sistema.
      */
+    @Override
     public List<Quimico> getQuimicos() {
         return datos.getQuimicos();
     }
@@ -38,6 +41,7 @@ public class CtrlQuimicos {
      * @param quimico Quimico a guardar.
      * @return true si el quimico se guardo, false en caso contrario.
      */
+    @Override
     public boolean guardarQuimico(Quimico quimico) {
         return datos.guardarQuimico(quimico);
     }

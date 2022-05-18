@@ -1,7 +1,9 @@
 package implementaciones;
 
+import interfaces.IDatos;
 import entidades.Residuo_Transporte;
 import entidades.Solicitud_de_Traslado;
+import interfaces.ICtrlSolicitudTraslado;
 import java.util.Date;
 import java.util.List;
 import org.bson.types.ObjectId;
@@ -10,7 +12,7 @@ import org.bson.types.ObjectId;
  *
  * @author Equipo 1 Jose,Abraham y Oroz
  */
-public class CtrlSolicitudTraslado {
+public class CtrlSolicitudTraslado implements ICtrlSolicitudTraslado{
 
     private IDatos datos;
 
@@ -32,6 +34,7 @@ public class CtrlSolicitudTraslado {
      * @return true si la solicitud de traslado se registro con exito, false en
      * caso contrario
      */
+    @Override
     public boolean guardarSolicitud(Solicitud_de_Traslado solicitudDeTraslado) {
         return this.datos.guardarSolicitud(solicitudDeTraslado);
     }
@@ -42,6 +45,7 @@ public class CtrlSolicitudTraslado {
      *
      * @return La lista de solicitudes no atendidas.
      */
+    @Override
     public List<Solicitud_de_Traslado> consultarSolicitudesNoAtendidas() {
         return this.datos.consultarSolicitudesNoAtendidas();
     }
@@ -52,6 +56,7 @@ public class CtrlSolicitudTraslado {
      *
      * @param solicitudDeTraslado Solicitud de traslado a validar.
     * @return El mensaje de la validacion.     */
+    @Override
     public String validarSolicitud(Solicitud_de_Traslado solicitudDeTraslado) {
         return this.datos.validarSolicitud(solicitudDeTraslado);
     }
@@ -65,6 +70,7 @@ public class CtrlSolicitudTraslado {
      * @param residuoTransporte Residuo de transporte a actualizar.
      * @return true si este se actualizo con exito, false en caso contrario.
      */
+    @Override
     public boolean actualizarSolicitud(ObjectId _idSolicitudTraslado, Residuo_Transporte residuoTransporte) {
         return this.datos.actualizarSolicitud(_idSolicitudTraslado, residuoTransporte);
     }
@@ -77,7 +83,9 @@ public class CtrlSolicitudTraslado {
    * @param _idSolicitudTraslado ID de la solicitud de traslado a actualizar.
      * @return true si esta se actualizo con exito, false en caso contrario.
      */
+    @Override
     public boolean actualizarSolicitudTraslado(ObjectId _idSolicitudTraslado) {
         return this.datos.actualizarSolicitudTraslado(_idSolicitudTraslado);
     }
+
 }
