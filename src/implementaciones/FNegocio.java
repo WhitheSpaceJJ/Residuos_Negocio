@@ -16,8 +16,14 @@ import entidades.Transporte;
 import entidades.Traslado;
 import entidades.Usuario;
 import entidades.Vehiculo;
+import interfaces.ICtrlAsignacionTraslado;
+import interfaces.ICtrlEmpresas;
+import interfaces.ICtrlQuimicos;
+import interfaces.ICtrlResiduos;
+import interfaces.ICtrlSolicitudTraslado;
+import interfaces.ICtrlTraslado;
+import interfaces.ICtrlUsuarios;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import org.bson.types.ObjectId;
 
@@ -28,13 +34,13 @@ import org.bson.types.ObjectId;
  */
 public class FNegocio implements INegocio {
 
-    private CtrlEmpresas ctrlEmpresas;
-    private CtrlUsuarios ctrlUsuarios;
-    private CtrlAsignacionTraslado ctrlAsignacionTraslado;
-    private CtrlQuimicos ctrlQuimicos;
-    private CtrlResiduos ctrlResiduos;
-    private CtrlSolicitudTraslado ctrlSolicitudTraslado;
-    private CtrlTraslado ctrlTraslado;
+    private ICtrlEmpresas ctrlEmpresas;
+    private ICtrlUsuarios ctrlUsuarios;
+    private ICtrlAsignacionTraslado ctrlAsignacionTraslado;
+    private ICtrlQuimicos ctrlQuimicos;
+    private ICtrlResiduos ctrlResiduos;
+    private ICtrlSolicitudTraslado ctrlSolicitudTraslado;
+    private ICtrlTraslado ctrlTraslado;
     private final IDatos datos = FabricaDatos.crearFDatos();
 
     /**
@@ -44,7 +50,7 @@ public class FNegocio implements INegocio {
      *
      * @return Instancia de la clase CtrlAsignacionTraslado
      */
-    public CtrlAsignacionTraslado crearCtrlAsignacionTraslado() {
+    public ICtrlAsignacionTraslado crearCtrlAsignacionTraslado() {
         if (ctrlAsignacionTraslado != null) {
             return ctrlAsignacionTraslado;
         } else {
@@ -59,7 +65,7 @@ public class FNegocio implements INegocio {
      *
      * @return Instancia de la clase CtrlEmpresas
      */
-    public CtrlEmpresas crearCtrlEmpresas() {
+    public ICtrlEmpresas crearCtrlEmpresas() {
         if (ctrlEmpresas != null) {
             return ctrlEmpresas;
         } else {
@@ -74,7 +80,7 @@ public class FNegocio implements INegocio {
      *
      * @return Instancia de la clase CtrlQuimicos
      */
-    public CtrlQuimicos crearCtrlQuimicos() {
+    public ICtrlQuimicos crearCtrlQuimicos() {
         if (ctrlQuimicos != null) {
             return ctrlQuimicos;
         } else {
@@ -89,7 +95,7 @@ public class FNegocio implements INegocio {
      *
      * @return Instancia de la clase CtrlResiduos
      */
-    public CtrlResiduos crearCtrlResiduos() {
+    public ICtrlResiduos crearCtrlResiduos() {
         if (ctrlResiduos != null) {
             return ctrlResiduos;
         } else {
@@ -105,7 +111,7 @@ public class FNegocio implements INegocio {
      *
      * @return Instancia de la clase CtrlSolicitudTraslado
      */
-    public CtrlSolicitudTraslado crearCtrlSolicitudTraslado() {
+    public ICtrlSolicitudTraslado crearCtrlSolicitudTraslado() {
         if (ctrlSolicitudTraslado != null) {
             return ctrlSolicitudTraslado;
         } else {
@@ -120,7 +126,7 @@ public class FNegocio implements INegocio {
      *
      * @return Instancia de la clase CtrlTraslado
      */
-    public CtrlTraslado crearCtrlTraslado() {
+    public ICtrlTraslado crearCtrlTraslado() {
         if (ctrlTraslado != null) {
             return ctrlTraslado;
         } else {
@@ -135,7 +141,7 @@ public class FNegocio implements INegocio {
      *
      * @return Instancia de la clase CtrlUsuarios
      */
-    public CtrlUsuarios crearCtrlUsuarios() {
+    public ICtrlUsuarios crearCtrlUsuarios() {
         if (ctrlUsuarios != null) {
             return ctrlUsuarios;
         } else {
